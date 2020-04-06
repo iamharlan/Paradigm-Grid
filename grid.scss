@@ -1,15 +1,22 @@
 /*--- Harlan Bowling's Flexbox Grid  ---*/
-/*--- Version: 1.1 - 4.25.19 ---*/
+/*--- Version: 1.2 - 1.27.20 ---*/
 
 /*===========================================*/
 /*Basic Grid Styles*/
   
-  .grid, .grid-gutters { display: flex; flex-flow: row; flex-wrap: wrap; }
-  .grid-gutters { justify-content: space-between; }
-  .col { flex:1; }
+  .grid, .grid-gutters, .grid-pad { display: flex; flex-flow: row; flex-wrap: wrap; }
+  .grid-gutters, .grid-pad { justify-content: space-between; }
 
-// Grid Style Modifiers
-  $gutter: 2%;
+  /* Grid Style Modifiers */
+  $gutter: 4%;
+  $pad-gutter: 8%;
+
+  /* Base Columns */
+  .col { flex:1; }
+  .grid-gutters .col { margin:0 calc(#{$gutter}/2); }
+  .grid-gutters .col:first-of-type { margin:0 calc(#{$gutter}/2) 0 0; }
+  .grid-gutters .col:last-of-type { margin:0 0 0 calc(#{$gutter}/2); }
+  .grid-pad .col { margin:0 calc(#{$pad-gutter}/2); }
 
   /* Vertical Alignment per row */
   .grid-top { align-items: flex-start; }
@@ -50,6 +57,14 @@
 
     }
 
+    .grid-pad { 
+
+      .col-1-2, .col-1-3, .col-2-3, .col-1-4, .col-3-4, .col-1-5, .col-2-5, .col-3-5, .col-4-5, .col-1-6, .col-5-6 { flex: 0 0 100%; }
+      .col-1-8, .col-3-8 { flex: 0 0 calc(25% - #{$pad-gutter}); }
+      .col-5-8, .col-7-8 { flex: 0 0 calc(75% - #{$pad-gutter}); }
+
+    }
+
 
   /* Portrait Tablet (Medium) Screens & Up */
   @media (min-width: 550px) {
@@ -70,6 +85,13 @@
 
     }
 
+    .grid-pad { 
+
+      .col-1-4, .col-3-4 { flex: 0 0 calc(50% - #{$pad-gutter}); }
+      .col-1-5, .col-2-5, .col-3-5, .col-4-5, .col-1-6, .col-5-6 { flex: 0 0 calc(33.3333% - #{$pad-gutter}); }
+
+    }
+
   }
 
 
@@ -86,7 +108,7 @@
     .col-3-5 { flex: 0 0 60%; }
     .col-4-5 { flex: 0 0 80%; }
     .col-1-6 { flex: 0 0 16.6666%; }
-    .col-5-6 { flex: 0 0 83.3333%; }
+    .col-5-6 { flex: 0 0 91.6666%; }
     .col-1-8 { flex: 0 0 12.5%; }
     .col-3-8 { flex: 0 0 37.5%; }
     .col-5-8 { flex: 0 0 62.5%; }
@@ -104,11 +126,31 @@
       .col-3-5 { flex: 0 0 calc(60% - #{$gutter}); }
       .col-4-5 { flex: 0 0 calc(80% - #{$gutter}); }
       .col-1-6 { flex: 0 0 calc(16.6666% - #{$gutter}); }
-      .col-5-6 { flex: 0 0 calc(83.3333% - #{$gutter}); }
+      .col-5-6 { flex: 0 0 calc(91.6666% - #{$gutter}); }
       .col-1-8 { flex: 0 0 calc(12.5% - #{$gutter}); }
       .col-3-8 { flex: 0 0 calc(37.5% - #{$gutter}); }
       .col-5-8 { flex: 0 0 calc(62.5% - #{$gutter}); }
       .col-7-8 { flex: 0 0 calc(87.5% - #{$gutter}); }
+
+    }
+
+    .grid-pad { 
+
+      .col-1-2 { flex: 0 0 calc(50% - #{$pad-gutter}); }
+      .col-1-3 { flex: 0 0 calc(33.3333% - #{$pad-gutter}); }
+      .col-2-3 { flex: 0 0 calc(66.6666% - #{$pad-gutter}); }
+      .col-1-4 { flex: 0 0 calc(25% - #{$pad-gutter}); }
+      .col-3-4 { flex: 0 0 calc(75% - #{$pad-gutter}); }
+      .col-1-5 { flex: 0 0 calc(20% - #{$pad-gutter}); }
+      .col-2-5 { flex: 0 0 calc(40% - #{$pad-gutter}); }
+      .col-3-5 { flex: 0 0 calc(60% - #{$pad-gutter}); }
+      .col-4-5 { flex: 0 0 calc(80% - #{$pad-gutter}); }
+      .col-1-6 { flex: 0 0 calc(16.6666% - #{$pad-gutter}); }
+      .col-5-6 { flex: 0 0 calc(91.6666% - #{$pad-gutter}); }
+      .col-1-8 { flex: 0 0 calc(12.5% - #{$pad-gutter}); }
+      .col-3-8 { flex: 0 0 calc(37.5% - #{$pad-gutter}); }
+      .col-5-8 { flex: 0 0 calc(62.5% - #{$pad-gutter}); }
+      .col-7-8 { flex: 0 0 calc(87.5% - #{$pad-gutter}); }
 
     }
 
