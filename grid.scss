@@ -1,22 +1,23 @@
-/*--- Harlan Bowling's Flexbox Grid  ---*/
-/*--- Version: 1.2 - 1.27.20 ---*/
+/*--- Harlan Bowling's Flexbox Grid – paradigmcreative.com  ---*/
+/*--- Version: 1.4 - 4.27.21 ---*/
+
+// Responsive Breakpoints
+$portrait: "(min-width:550px)"; // Portrait and Above
+$tablet: "(min-width:800px)"; // Tablet Landscape and Above
+$desktop: "(min-width:1024px)"; // Desktop and Above
+$widescreen: "(min-width:1250px)"; // Large Devices
 
 /*===========================================*/
+
 /*Basic Grid Styles*/
   
   .grid, .grid-gutters, .grid-pad { display: flex; flex-flow: row; flex-wrap: wrap; }
   .grid-gutters, .grid-pad { justify-content: space-between; }
-
-  /* Grid Style Modifiers */
-  $gutter: 4%;
-  $pad-gutter: 8%;
-
-  /* Base Columns */
   .col { flex:1; }
-  .grid-gutters .col { margin:0 calc(#{$gutter}/2); }
-  .grid-gutters .col:first-of-type { margin:0 calc(#{$gutter}/2) 0 0; }
-  .grid-gutters .col:last-of-type { margin:0 0 0 calc(#{$gutter}/2); }
-  .grid-pad .col { margin:0 calc(#{$pad-gutter}/2); }
+
+// Grid Style Modifiers
+  $gutter: 3%;
+  $pad-gutter: 8%;
 
   /* Vertical Alignment per row */
   .grid-top { align-items: flex-start; }
@@ -67,13 +68,13 @@
 
 
   /* Portrait Tablet (Medium) Screens & Up */
-  @media (min-width: 550px) {
+  @media #{$portrait} {
 
   }
 
 
   /* Landscape Tablet (Large) Screens & Up */
-  @media (min-width: 850px) {
+  @media #{$tablet} {
 
     .col-1-4, .col-3-4 { flex: 0 0 50%; }
     .col-1-5, .col-2-5, .col-3-5, .col-4-5, .col-1-6, .col-5-6 { flex: 0 0 33.3333%; }
@@ -96,7 +97,7 @@
 
 
   /* Desktop (XLarge) Screens & Up */
-  @media (min-width: 1024px) {
+  @media #{$desktop} {
 
     .col-1-2 { flex: 0 0 50%; }
     .col-1-3 { flex: 0 0 33.3333%; }
@@ -108,7 +109,7 @@
     .col-3-5 { flex: 0 0 60%; }
     .col-4-5 { flex: 0 0 80%; }
     .col-1-6 { flex: 0 0 16.6666%; }
-    .col-5-6 { flex: 0 0 91.6666%; }
+    .col-5-6 { flex: 0 0 83.3333%; }
     .col-1-8 { flex: 0 0 12.5%; }
     .col-3-8 { flex: 0 0 37.5%; }
     .col-5-8 { flex: 0 0 62.5%; }
@@ -126,7 +127,7 @@
       .col-3-5 { flex: 0 0 calc(60% - #{$gutter}); }
       .col-4-5 { flex: 0 0 calc(80% - #{$gutter}); }
       .col-1-6 { flex: 0 0 calc(16.6666% - #{$gutter}); }
-      .col-5-6 { flex: 0 0 calc(91.6666% - #{$gutter}); }
+      .col-5-6 { flex: 0 0 calc(83.3333% - #{$gutter}); }
       .col-1-8 { flex: 0 0 calc(12.5% - #{$gutter}); }
       .col-3-8 { flex: 0 0 calc(37.5% - #{$gutter}); }
       .col-5-8 { flex: 0 0 calc(62.5% - #{$gutter}); }
@@ -146,7 +147,7 @@
       .col-3-5 { flex: 0 0 calc(60% - #{$pad-gutter}); }
       .col-4-5 { flex: 0 0 calc(80% - #{$pad-gutter}); }
       .col-1-6 { flex: 0 0 calc(16.6666% - #{$pad-gutter}); }
-      .col-5-6 { flex: 0 0 calc(91.6666% - #{$pad-gutter}); }
+      .col-5-6 { flex: 0 0 calc(83.3333% - #{$pad-gutter}); }
       .col-1-8 { flex: 0 0 calc(12.5% - #{$pad-gutter}); }
       .col-3-8 { flex: 0 0 calc(37.5% - #{$pad-gutter}); }
       .col-5-8 { flex: 0 0 calc(62.5% - #{$pad-gutter}); }
